@@ -40,6 +40,19 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta property="og:title" content="Madesh 🤍 Keerthana - 23.06.2026" />
+        <meta property="og:description" content="Join us to celebrate the wedding of Madesh & Keerthana on 23 June 2026." />
+        <meta property="og:image" content="https://madesh-keerthana.vercel.app/ogimage.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://madesh-keerthana.vercel.app/" />
+        <meta property="og:site_name" content="Madesh & Keerthana" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Madesh 🤍 Keerthana - 23.06.2026" />
+        <meta name="twitter:description" content="Join us to celebrate the wedding of Madesh & Keerthana on 23 June 2026." />
+        <meta name="twitter:image" content="https://madesh-keerthana.vercel.app/ogimage.png" />
         <Meta />
         <Links />
       </head>
