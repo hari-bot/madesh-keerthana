@@ -19,6 +19,16 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
       }
     >
       <div className="bg-background h-screen w-screen flex flex-row justify-center items-start fixed overflow-auto py-20 box-border">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "url(/fprint.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center center",
+            backgroundSize: "min(105vw, 750px)",
+            opacity: 0.13,
+          }}
+        />
         <div className="flex flex-col items-center p-5 my-auto w-full md:w-[500]">
           <h5 className="text-center font-medium font-sans text-xl md:text-2xl mb-8 text-gray-500">
             Wedding Invitation

@@ -14,6 +14,7 @@ import reactPhotoViewStyles from "react-photo-view/dist/react-photo-view.css";
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: styles },
+  { rel: "icon", type: "image/png", href: "/fprint.png" },
   { rel: "stylesheet", href: reactPhotoViewStyles },
   {
     rel: "preconnect",
