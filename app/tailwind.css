@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Amsterdam";
+  src: url("/fonts/amsterdam.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
