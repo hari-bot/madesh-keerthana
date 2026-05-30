@@ -84,9 +84,9 @@ export default function Index() {
 
       <div
         className="flex justify-center items-center h-screen md:h-[750px] bg-no-repeat bg-center bg-cover"
-        style={{ backgroundImage: `url(${isMobile ? heroBgMobile : heroBg})` }}
+        style={{ backgroundImage: `url(hero-bg-test-1.jpg)` }}
       >
-        <div className="mb-1">
+        <div className="mb-1" style={{marginTop:"8rem"}}>
           <h4
             className="text-center font-amsterdam text-3xl sm:text-4xl md:text-6xl mb-4 text-[#EFEFEF]" style={{ lineHeight: "1.3" }}
             style={{ textShadow: "3px 3px 1px #CE7BB0" }}

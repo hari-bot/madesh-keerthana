@@ -1,6 +1,6 @@
 import TextWithLine from "./Utils/TextWithLine";
 
-const BRIDE_IMG = "https://picsum.photos/seed/bride-keerthana/400/400";
+const BRIDE_IMG = "bride.jpg";
 const GROOM_IMG = "https://picsum.photos/seed/groom-madesh/400/400";
 
 const BrideAndGroom = () => {
