@@ -41,7 +41,6 @@ const photos: IPhoto[] = [
     alt: "Madesh & Keerthana",
     wide: true,
   },
-  { src: foto6, width: 2263, height: 2410, alt: "Madesh & Keerthana" },
 ];
 
 let isHydrating = true;
