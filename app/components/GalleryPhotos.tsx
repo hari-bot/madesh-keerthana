@@ -1,17 +1,47 @@
 import { useEffect, useState } from "react";
 import Gallery from "./Gallery";
 import type { IPhoto } from "./Gallery";
+import foto1 from "~/images/foto1.jpg";
+import foto2 from "~/images/foto2.jpg";
+import foto3 from "~/images/foto3.jpg";
+import foto4 from "~/images/foto4.jpg";
+import foto5 from "~/images/foto5.jpg";
+import foto6 from "~/images/foto6.jpg";
+import foto7 from "~/images/foto7.jpg";
 
+// width/height are the real pixel dimensions of each photo so the gallery
+// lays them out at their true aspect ratio (no stretching / squashing).
+// `wide: true` makes a photo span the full width on the mobile 2-col grid —
+// set on the landscape shots so they read as full-width "hero" rows, while the
+// portraits pair up side-by-side. foto2 and foto6 look similar, so they're
+// placed far apart (top vs bottom).
 const photos: IPhoto[] = [
-  { src: "https://picsum.photos/seed/wedding1/900/600", width: 3, height: 2, alt: "pic 1" },
-  { src: "https://picsum.photos/seed/wedding2/600/750", width: 4, height: 5, alt: "pic 2" },
-  { src: "https://picsum.photos/seed/wedding3/900/600", width: 3, height: 2, alt: "pic 3" },
-  { src: "https://picsum.photos/seed/wedding4/600/600", width: 1, height: 1, alt: "pic 4" },
-  { src: "https://picsum.photos/seed/wedding5/900/600", width: 3, height: 2, alt: "pic 5" },
-  { src: "https://picsum.photos/seed/wedding6/600/750", width: 4, height: 5, alt: "pic 6" },
-  { src: "https://picsum.photos/seed/wedding7/900/720", width: 5, height: 4, alt: "pic 7" },
-  { src: "https://picsum.photos/seed/wedding8/900/600", width: 3, height: 2, alt: "pic 8" },
-  { src: "https://picsum.photos/seed/wedding9/600/900", width: 2, height: 3, alt: "pic 9" },
+  {
+    src: foto2,
+    width: 4096,
+    height: 2304,
+    alt: "Madesh & Keerthana",
+    wide: true,
+  },
+  { src: foto3, width: 853, height: 1280, alt: "Madesh & Keerthana" },
+  { src: foto7, width: 3024, height: 4032, alt: "Madesh & Keerthana" },
+  {
+    src: foto1,
+    width: 2000,
+    height: 1333,
+    alt: "Madesh & Keerthana",
+    wide: true,
+  },
+  { src: foto4, width: 3000, height: 4000, alt: "Madesh & Keerthana" },
+  { src: foto6, width: 2263, height: 2410, alt: "Madesh & Keerthana" },
+  {
+    src: foto5,
+    width: 1800,
+    height: 1200,
+    alt: "Madesh & Keerthana",
+    wide: true,
+  },
+  { src: foto6, width: 2263, height: 2410, alt: "Madesh & Keerthana" },
 ];
 
 let isHydrating = true;
@@ -30,7 +60,7 @@ const GalleryPhotos = () => {
         Gallery
       </h4>
       {isHydrated ? (
-        <div className="w-full overflow-auto">
+        <div className="w-full">
           <Gallery photos={photos} />
         </div>
       ) : null}

@@ -1,11 +1,3 @@
-/* 
-All of the code in this component are copied and modified from:
-https://github.com/neptunian/react-photo-gallery
-*/
-
-import { useLayoutEffect, useRef, useState } from "react";
-import { computeRowLayout } from "./Utils/compute-layout";
-import { findIdealNodeSearch } from "./Utils/findIdealNodeSearch";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 export interface IPhoto {
@@ -13,75 +5,43 @@ export interface IPhoto {
   width: number;
   height: number;
   alt: string;
+  /* span both columns (full width) on the mobile 2-col grid */
+  wide?: boolean;
 }
 
 interface GalleryProps {
   photos: IPhoto[];
 }
 
+/*
+ * Mobile: a 2-column masonry grid. Wide photos span both columns (full width)
+ * while smaller ones sit side-by-side; grid-flow-dense backfills the gaps so
+ * there's no ragged empty space. Desktop (md+) falls back to a 3-column CSS
+ * columns masonry. Every image keeps its NATURAL aspect ratio (no cropping),
+ * and overflow-hidden keeps the hover zoom inside its frame (no scrollbar).
+ */
 const Gallery = ({ photos }: GalleryProps) => {
-  const [containerWidth, setContainerWidth] = useState(0);
-  const galleryEl = useRef<HTMLDivElement | null>(null);
-
-  useLayoutEffect(() => {
-    let animationFrameID: number | null = null;
-    const observer = new ResizeObserver((entries) => {
-      // only do something if width changes
-      const newWidth = entries[0].contentRect.width;
-      if (containerWidth !== newWidth) {
-        // put in an animation frame to stop "benign errors" from
-        // ResizObserver https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded
-        animationFrameID = window.requestAnimationFrame(() => {
-          setContainerWidth(Math.floor(newWidth));
-        });
-      }
-    });
-
-    if (galleryEl.current) {
-      observer.observe(galleryEl.current);
-    }
-
-    return () => {
-      observer.disconnect();
-      if (animationFrameID) {
-        window.cancelAnimationFrame(animationFrameID);
-      }
-    };
-  });
-
-  if (!containerWidth) return <div ref={galleryEl}>&nbsp;</div>;
-
-  const width = containerWidth - 1;
-  const targetRowHeight = 300;
-  let limitNodeSearch = 2;
-  if (containerWidth >= 450) {
-    limitNodeSearch = findIdealNodeSearch({ containerWidth, targetRowHeight });
-  }
-  const thumbs: IPhoto[] = computeRowLayout({
-    containerWidth: width,
-    limitNodeSearch,
-    targetRowHeight,
-    margin: 2,
-    photos,
-  });
-
   return (
     <PhotoProvider>
-      <div ref={galleryEl} className="flex flex-wrap">
-        {thumbs.map((thumb, index) => {
-          return (
-            <PhotoView key={index} src={thumb.src}>
+      <div className="grid grid-flow-dense grid-cols-2 gap-2 md:block md:columns-3 md:gap-3">
+        {photos.map((photo, index) => (
+          <PhotoView key={index} src={photo.src}>
+            <div
+              className={`mb-2 overflow-hidden rounded-lg shadow-sm md:mb-3 ${
+                photo.wide ? "col-span-2" : ""
+              }`}
+            >
               <img
-                key={index}
-                src={thumb.src}
-                alt={thumb.alt}
-                width={thumb.width}
-                height={thumb.height}
-                className="m-0.5 cursor-pointer"
+                src={photo.src}
+                alt={photo.alt}
+                width={photo.width}
+                height={photo.height}
+                loading="lazy"
+                className="w-full cursor-pointer transition duration-300 hover:scale-105"
               />
-            </PhotoView>
-          );
-        })}
+            </div>
+          </PhotoView>
+        ))}
       </div>
     </PhotoProvider>
   );

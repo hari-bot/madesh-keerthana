@@ -1,7 +1,9 @@
 import TextWithLine from "./Utils/TextWithLine";
+import keerthanaImg from "~/images/keerthana-img.jpg";
+import madeshImg from "~/images/madesh-img.jpg";
 
-const BRIDE_IMG = "bride.jpg";
-const GROOM_IMG = "https://picsum.photos/seed/groom-madesh/400/400";
+const BRIDE_IMG = keerthanaImg;
+const GROOM_IMG = madeshImg;
 
 const BrideAndGroom = () => {
   return (

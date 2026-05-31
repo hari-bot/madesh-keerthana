@@ -5,8 +5,7 @@ import WelcomeModal from "~/components/WelcomeModal";
 import { indexAction, indexLoader } from "~/controls";
 import type { LoaderDataType } from "~/controls";
 import { useMediaQuery } from "react-responsive";
-const heroBg = "https://picsum.photos/seed/wedding-hero/1600/900";
-const heroBgMobile = "https://picsum.photos/seed/wedding-hero-mobile/800/1200";
+import heroBg from "~/images/hero-bg.jpg";
 import SectionWrapper from "~/components/Utils/SectionWrapper";
 import BrideAndGroom from "~/components/BrideAndGroom";
 import Countdown from "~/components/Countdown";
@@ -36,7 +35,8 @@ export const meta: V2_MetaFunction = () => {
     },
     { "og:title": "Wedding Invitation - Madesh & Keerthana" },
     {
-      "og:description": "Tuesday, 23 June 2026 — Join us to celebrate our special day",
+      "og:description":
+        "Tuesday, 23 June 2026 — Join us to celebrate our special day",
     },
     { "og:type": "website" },
 
@@ -84,11 +84,11 @@ export default function Index() {
 
       <div
         className="flex justify-center items-center h-screen md:h-[750px] bg-no-repeat bg-center bg-cover"
-        style={{ backgroundImage: `url(hero-bg-test-1.jpg)` }}
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="mb-1" style={{marginTop:"8rem"}}>
+        <div className="mt-32">
           <h4
-            className="text-center font-amsterdam text-3xl sm:text-4xl md:text-6xl mb-4 text-[#EFEFEF]" style={{ lineHeight: "1.3" }}
+            className="text-center font-amsterdam text-3xl sm:text-4xl md:text-6xl mb-4 text-[#EFEFEF] leading-tight"
             style={{ textShadow: "3px 3px 1px #CE7BB0" }}
           >
             Madesh & Keerthana
@@ -122,7 +122,10 @@ export default function Index() {
         <GalleryPhotos />
       </SectionWrapper>
 
-      <div className="py-24 relative text-center font-sans" style={{ backgroundColor: "#EDD9E5", color: "#555" }}>
+      <div
+        className="py-24 relative text-center font-sans"
+        style={{ backgroundColor: "#EDD9E5", color: "#555" }}
+      >
         © {thisYear} <span className="font-semibold">Madesh & Keerthana</span>
       </div>
 
