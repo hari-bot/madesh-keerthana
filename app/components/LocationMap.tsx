@@ -1,4 +1,5 @@
 import SectionWrapper from "./Utils/SectionWrapper";
+import mahalImg from "~/images/mahal.png";
 
 const MAP_EMBEDED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d79.1098599!3d12.975686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad4733076d0c7f%3A0xf4476c4a45cadec6!2sDurga%20Mahal%20A%2Fc!5e0!3m2!1sen!2sin!4v1700000000000";
@@ -15,7 +16,7 @@ const LocationMap = () => {
             <div className="p-2 bg-white rounded-lg shadow-lg">
               <iframe
                 src={MAP_EMBEDED_URL}
-                className="w-full h-[580px] md:h-[450px]"
+                className="w-full h-[290px] md:h-[225px]"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -23,6 +24,15 @@ const LocationMap = () => {
                 title={MAP_TITLE}
                 scrolling="no"
                 aria-label={MAP_TITLE}
+              />
+            </div>
+
+            <div className="mt-4 p-2 bg-white rounded-lg shadow-lg">
+              <img
+                src={mahalImg}
+                alt={MAP_TITLE}
+                loading="lazy"
+                className="w-full h-[290px] md:h-[225px] object-cover rounded"
               />
             </div>
           </div>
@@ -35,7 +45,7 @@ const LocationMap = () => {
               <h4 className="text-xl md:text-2xl mb-4 font-sans font-semibold text-gray-700">
                 Durga Mahal A/c
               </h4>
-              <p className="mb-16 md:mb-10 font-sans">{MAP_ADDRESS}</p>
+              <p className="mb-8 md:mb-6 font-sans">{MAP_ADDRESS}</p>
               <div className="flex md:justify-start justify-center">
                 <a
                   href={MAP_REDIRECT_URL}

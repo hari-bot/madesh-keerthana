@@ -86,39 +86,45 @@ export default function Index() {
         className="flex justify-center items-center h-screen md:h-[750px] bg-no-repeat bg-center bg-cover"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="mt-32">
+        {/* OPTION 1: white text + soft dark glow/halo + pink offset shadow */}
+        <div className="-mt-40 md:mt-0">
           <h4
-            className="text-center font-amsterdam text-3xl sm:text-4xl md:text-6xl mb-4 text-[#EFEFEF] leading-tight"
-            style={{ textShadow: "3px 3px 1px #CE7BB0" }}
+            className="text-center font-amsterdam text-3xl sm:text-4xl md:text-6xl mb-4 text-white leading-tight"
+            style={{
+              textShadow:
+                "3px 3px 1px #CE7BB0, 0 2px 12px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.65)",
+            }}
           >
             Madesh & Keerthana
           </h4>
           <div
-            className="text-center font-black font-sans text-md text-[#EFEFEF] italic border-t-2 border-[#CE7BB0] pt-3"
-            style={{ textShadow: "2px 2px 1px #CE7BB0" }}
+            className="text-center font-black font-sans text-md text-white italic border-t-2 border-[#CE7BB0] pt-3"
+            style={{
+              textShadow: "2px 2px 1px #CE7BB0, 0 1px 6px rgba(0,0,0,0.6)",
+            }}
           >
-            23.06.2026
+            24.06.2026
           </div>
         </div>
       </div>
 
-      <SectionWrapper className="bg-background">
+      {/* <SectionWrapper className="bg-background">
         <BrideAndGroom />
-      </SectionWrapper>
+      </SectionWrapper> */}
 
-      <SectionWrapper className="mb-36 pt-20">
+      <SectionWrapper className="mb-20 pt-20">
         <Agendas />
       </SectionWrapper>
 
-      <div className="mb-24">
+      <div className="mb-20">
         <LocationMap />
       </div>
 
-      <SectionWrapper className="mb-36 pt-24">
+      <SectionWrapper className="mb-40 pt-5">
         <Countdown />
       </SectionWrapper>
 
-      <SectionWrapper className="bg-background py-4">
+      <SectionWrapper className="bg-background pt-4 pb-24">
         <GalleryPhotos />
       </SectionWrapper>
 
