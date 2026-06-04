@@ -14,7 +14,7 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
   return (
     <div
       className={
-        "fixed h-screen w-screen left-0 top-0 z-10 transition-all duration-1000" +
+        "fixed h-screen w-screen left-0 top-0 z-50 transition-all duration-1000" +
         (!isOpen ? " -translate-y-full" : "")
       }
     >

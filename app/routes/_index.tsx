@@ -12,6 +12,7 @@ import Countdown from "~/components/Countdown";
 import Agendas from "~/components/Agendas";
 import LocationMap from "~/components/LocationMap";
 import MusicPlayer from "~/components/MusicPlayer";
+import FallingPetals from "~/components/FallingPetals";
 const ogimage = "/ogimage.png";
 import GalleryPhotos from "~/components/GalleryPhotos";
 
@@ -82,8 +83,10 @@ export default function Index() {
     >
       <WelcomeModal isOpen={openWelcome} onClose={onCloseWelcomeModal} />
 
+      {!openWelcome && <FallingPetals />}
+
       <div
-        className="flex justify-center items-center h-screen md:h-[750px] bg-no-repeat bg-center bg-cover"
+        className="relative z-10 flex justify-center items-center h-screen md:h-[750px] bg-no-repeat bg-center bg-cover"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
         {/* OPTION 1: white text + soft dark glow/halo + pink offset shadow */}
@@ -112,30 +115,32 @@ export default function Index() {
         <BrideAndGroom />
       </SectionWrapper> */}
 
-      <SectionWrapper className="mb-20 pt-20">
-        <Agendas />
-      </SectionWrapper>
+      <div className="relative z-10">
+        <SectionWrapper className="mb-20 pt-20">
+          <Agendas />
+        </SectionWrapper>
 
-      <div className="mb-20">
-        <LocationMap />
+        <div className="mb-20">
+          <LocationMap />
+        </div>
+
+        <SectionWrapper className="mb-40 pt-5">
+          <Countdown />
+        </SectionWrapper>
+
+        <SectionWrapper className="pt-4 pb-24">
+          <GalleryPhotos />
+        </SectionWrapper>
       </div>
 
-      <SectionWrapper className="mb-40 pt-5">
-        <Countdown />
-      </SectionWrapper>
-
-      <SectionWrapper className="bg-background pt-4 pb-24">
-        <GalleryPhotos />
-      </SectionWrapper>
-
       <div
-        className="py-24 relative text-center font-sans"
+        className="py-24 relative z-10 text-center font-sans"
         style={{ backgroundColor: "#EDD9E5", color: "#555" }}
       >
         © {thisYear} <span className="font-semibold">Madesh & Keerthana</span>
       </div>
 
-      <MusicPlayer play={!openWelcome} />
+      <MusicPlayer play={!openWelcome} hideButton={openWelcome} />
     </div>
   );
 }

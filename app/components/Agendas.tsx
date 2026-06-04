@@ -63,7 +63,9 @@ const EventCard = ({
   accentBorder,
   ringClass,
 }: EventCardProps) => (
-  <div className={`flex-1 rounded-2xl border shadow-md p-8 ${cardClass}`}>
+  <div
+    className={`flex-1 rounded-2xl border shadow-md p-8 backdrop-blur-sm ${cardClass}`}
+  >
     <h4
       className={`text-lg font-sans font-bold tracking-widest uppercase mb-4 ${accentText}`}
     >
@@ -116,7 +118,7 @@ const Agendas = () => {
           time="6:00 PM"
           venue="Durga Mahal A/c"
           city="Katpadi"
-          cardClass="bg-gradient-to-b from-[#FCEDF4] to-white border-[#E9B7D2]"
+          cardClass="bg-gradient-to-b from-[#FCEDF4]/80 to-white/75 border-[#E9B7D2]"
           accentText="text-[#B5638F]"
           accentBorder="border-[#E9B7D2]"
           ringClass="ring-[#F3D6E6]"
@@ -129,7 +131,7 @@ const Agendas = () => {
           time="6:00 AM – 7:30 AM"
           venue="Durga Mahal A/c"
           city="Katpadi"
-          cardClass="bg-gradient-to-b from-[#FCEDF4] to-white border-[#E9B7D2]"
+          cardClass="bg-gradient-to-b from-[#FCEDF4]/80 to-white/75 border-[#E9B7D2]"
           accentText="text-[#B5638F]"
           accentBorder="border-[#E9B7D2]"
           ringClass="ring-[#F3D6E6]"

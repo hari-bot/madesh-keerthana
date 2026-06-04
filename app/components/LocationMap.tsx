@@ -9,7 +9,7 @@ const MAP_ADDRESS = "Vellore, Tamil Nadu";
 
 const LocationMap = () => {
   return (
-    <div className="py-10 bg-[#EFEFEF]">
+    <div className="py-10">
       <SectionWrapper>
         <div className="flex flex-col-reverse md:flex-row">
           <div className="w-full px-4 md:w-1/2">

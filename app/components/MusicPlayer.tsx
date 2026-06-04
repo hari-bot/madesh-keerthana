@@ -2,9 +2,11 @@ import { Fragment, useEffect, useRef, useState } from "react";
 
 interface MusicPlayerProps {
   play?: boolean;
+  /* hide the control button (audio keeps playing) — e.g. on the welcome page */
+  hideButton?: boolean;
 }
 
-const MusicPlayer = ({ play: playParent }: MusicPlayerProps) => {
+const MusicPlayer = ({ play: playParent, hideButton }: MusicPlayerProps) => {
   const [play, setPlay] = useState(false);
   const audio = useRef<HTMLAudioElement>(null);
 
@@ -32,7 +34,11 @@ const MusicPlayer = ({ play: playParent }: MusicPlayerProps) => {
         Your browser does not support the audio element.
       </audio>
 
-      <div className=" fixed bottom-0 right-0 mr-3 mb-3 md:mr-8 md:mb-8">
+      <div
+        className={`fixed bottom-0 right-0 z-50 mr-3 mb-3 md:mr-8 md:mb-8 ${
+          hideButton ? "hidden" : ""
+        }`}
+      >
         <div className="relative flex items-center justify-center">
           {/* pulsing rings — only while playing */}
           {play && (
